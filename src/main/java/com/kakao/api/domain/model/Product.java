@@ -1,19 +1,21 @@
 package com.kakao.api.domain.model;
 
 import lombok.Getter;
+import lombok.Setter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.UUID;
 
 @Getter
+@Setter
 @NoArgsConstructor
 @Entity
 @Table(name="product")
 public class Product {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id",unique = true)
-    private Long id;
+    private UUID id = UUID.randomUUID();
 
     @Column(length = 50)
     private String name;
