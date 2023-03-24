@@ -27,7 +27,6 @@ public class ProductApi {
     @PostMapping()
     public Product createProduct(@RequestBody ProductCreationRequest request){
         Product member = new Product();
-        System.out.println(request);
         BeanUtils.copyProperties(request, member);
         return productRep.save(member);
     }

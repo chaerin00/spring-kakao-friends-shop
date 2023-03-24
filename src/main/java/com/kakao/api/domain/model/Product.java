@@ -3,7 +3,6 @@ package com.kakao.api.domain.model;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.UUID;
@@ -15,9 +14,7 @@ import java.util.UUID;
 @Table(name="product")
 public class Product {
     @Id
-    @GeneratedValue(generator = "uuid2")
-    @GenericGenerator(name = "uuid2", strategy = "uuid2")
-    private UUID id;
+    private String id=UUID.randomUUID().toString();
     @Column(length = 50)
     private String name;
 
